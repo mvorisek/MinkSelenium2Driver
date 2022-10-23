@@ -1,0 +1,47 @@
+{
+    "name": "mink/driver-testsuite",
+    "description": "Functional testsuite for Mink drivers",
+    "homepage": "http://mink.behat.org/",
+    "type": "library",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name":      "Konstantin Kudryashov",
+            "email":     "ever.zet@gmail.com",
+            "homepage":  "http://everzet.com"
+        },
+        {
+            "name":      "Christophe Coevoet",
+            "email":     "stof@notk.org"
+        }
+    ],
+
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*",
+        "behat/mink": "^1.9",
+        "symfony/error-handler": "^4.4 || ^5.0 || ^6.0",
+        "symfony/phpunit-bridge": "^4.4 || ^5.4 || ^6.0",
+        "phpunit/phpunit": "^8.5.22 || ^9.5.11",
+        "yoast/phpunit-polyfills": "^1.0"
+    },
+    "require-dev": {
+        "symfony/http-kernel": "^4.4 || ^5.0 || ^6.0"
+    },
+    "conflict": {
+        "symfony/http-foundation": "<4.4 || >=7",
+        "symfony/http-kernel": "<4.4 || >=7"
+    },
+
+    "bin": [
+        "bin/mink-test-server"
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "Behat\\Mink\\Tests\\Driver\\Util\\": "src/",
+            "Behat\\Mink\\Tests\\Driver\\": "tests/"
+        }
+    }
+}

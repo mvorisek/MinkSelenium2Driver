@@ -37,6 +37,9 @@ jobs:
       - name: Install dependencies
         run: |
           composer update --no-interaction --prefer-dist
+          rm -r vendor/mink/driver-testsuite
+          chmod +x mink-driver-testsuite/bin/mink-test-server
+          mv mink-driver-testsuite vendor/mink/driver-testsuite
 
       - name: Setup Mink test server
         run: |
