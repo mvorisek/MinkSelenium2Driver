@@ -37,6 +37,9 @@ jobs:
       - name: Install dependencies
         run: |
           composer update --no-interaction --prefer-dist
+          rm -r vendor/mink/driver-testsuite
+          git clone https://github.com/mvorisek/driver-testsuite.git -b fix_tests_for_selenium_3 vendor/mink/driver-testsuite
+          (cd vendor/mink/driver-testsuite && git log -n 1)
 
       - name: Setup Mink test server
         run: |
