@@ -893,14 +893,7 @@ JS;
      */
     protected function mouseOverElement(Element $element)
     {
-        try {
-            // Move the mouse to the element as Selenium does not allow clicking on an element which is outside the viewport
-            $this->wdSession->moveto(array('element' => $element->getID()));
-        } catch (UnknownCommand $e) {
-            // If the Webdriver implementation does not support moveto (which is not part of the W3C WebDriver spec), proceed to the click
-        } catch (UnknownError $e) {
-            // Chromium driver sends back UnknownError (WebDriver\Exception with code 13)
-        }
+        $this->wdSession->moveto(array('element' => $element->getID()));
     }
 
     /**
